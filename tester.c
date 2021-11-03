@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:26:56 by thi-phng          #+#    #+#             */
-/*   Updated: 2021/11/01 18:24:30 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/03 22:06:23 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#define BUFFER_SIZE 1
 
 int	ft_strlen(char *str)
 {
@@ -78,9 +79,8 @@ char	*ft_read(int fd, char *stat)
 	int		ret = 1;
 	char	buf[BUFFER_SIZE + 1];
 
-//	if (!stat)
-//		return (NULL);
-	while (ret != 0 && !ft_strchr(stat, '\n'))
+
+	while (ret > 0 && ft_strchr(stat, '\n') == 0)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == -1)
@@ -165,17 +165,12 @@ char	*get_next_line(int fd)
 
 
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	int		fd;
 	char	*line;
+	int		fd;
 
-	if (ac != 2)
-	{
-		printf("ac !\n");
-		exit (0);
-	}
-	fd = open(av[1], O_RDONLY);
+	fd = open("text.txt", O_RDONLY);
 	while ((line = get_next_line(fd)))
 	{
 		printf("1%s", line);

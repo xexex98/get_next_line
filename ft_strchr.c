@@ -5,12 +5,39 @@
 #include <stdlib.h>
 # define BUFFER_SIZE 1000
 
-char	*ft_strchr(const char *str, int c)
+// char	*ft_strchr(const char *str, int c)
+// {
+// 	while (*str != (char) c)
+// 		if (!*str++)
+// 			return (NULL);
+// 	return ((char *) str);
+// }
+
+// char *ft_strchr(char *str, char c)
+// {
+// 	if (!str)
+// 		return (NULL);
+// 	while (*str++)
+// 		if (*str == c)
+// 			return((char *)str);
+// 	return (NULL);
+// }
+
+char *ft_strchr(char *str, char c)
 {
-	while (*str != (char) c)
-		if (!*str++)
-			return (NULL);
-	return ((char *) str);
+	int i;
+
+	i = 0;
+
+	if (!str)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] == c)
+			return(&str[i]);
+		i++;
+	}
+	return (NULL);
 }
 
 int main()
@@ -20,7 +47,7 @@ int main()
 	int fd;
 	char *next;
 	int i = 0;
-	if (ft_strchr(str, '5') == NULL)
+	if (!ft_strchr(str, '5'))
 	{
 		i = 0;
 	}

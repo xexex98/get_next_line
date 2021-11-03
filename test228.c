@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 18:42:32 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/01 19:26:24 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/02 13:15:22 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(void)
 {
 	int		fd;
 	char	*line;
-git 
+
 	fd =  open("text.txt", O_RDONLY);
 	line = gnl(fd);
 	// while ((line = gnl(fd)))
