@@ -1,78 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getnl.c                                            :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:58:10 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/04 13:22:08 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/04 18:23:45 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#define BUFFER_SIZE 1
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(char *str, char c)
-{
-	int		i;
-
-	i = 0;
-	if (!str)
-		return (NULL);
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-			return (&str[i]);
-		i++;
-	}
-	return (NULL);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*big;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	if (!s1)
-	{
-		s1 = malloc(1);
-		if (!s1)
-			return (NULL);
-		s1[0] = '\0';
-	}
-	if (!s2)
-		return (NULL);
-	big = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!big)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		big[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-		big[i++] = s2[j++];
-	big[i] = '\0';
-	free(s1);
-	return (big);
-}
+#include "get_next_line.h"
 
 char	*ft_read(int fd, char *buf2)
 {
@@ -138,17 +76,13 @@ char	*ft_line_reminder(char *buf2)
 		return (NULL);
 	i++;
 	while (buf2[i] != '\0')
-	{
-		line[j] = buf2[i];
-		i++;
-		j++;
-	}
+		line[j++] = buf2[i++];
 	line[j] = '\0';
 	free(buf2);
 	return (line);
 }
 
-char	*gnl(int fd)
+char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*buf2;
@@ -169,13 +103,10 @@ int	main(void)
 	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
-	// while ((line = gnl(fd)))
-	// {
-	// 	printf("1%s", line);
-	// 	free(line);
-	// }
-	line = gnl(fd);
-	line = gnl(fd);
-	line = gnl(fd);
+	while ((line = get_next_line(fd)))
+	{
+		printf("1%s", line);
+		free(line);
+	}
 	return (0);
 }
