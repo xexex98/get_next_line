@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getnl.c                                            :+:      :+:    :+:   */
+/*   rly.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:58:10 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/04 13:22:08 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/04 13:13:22 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -67,9 +67,12 @@ char	*ft_strjoin(char *s1, char *s2)
 		big[i] = s1[i];
 		i++;
 	}
-	while (s2[j] != '\0')
-		big[i++] = s2[j++];
-	big[i] = '\0';
+	while (s2[j])
+	{
+		big[i + j] = s2[j];
+		j++;
+	}
+	big[i + j] = '\0';
 	free(s1);
 	return (big);
 }
@@ -169,13 +172,8 @@ int	main(void)
 	int		fd;
 
 	fd = open("text.txt", O_RDONLY);
-	// while ((line = gnl(fd)))
-	// {
-	// 	printf("1%s", line);
-	// 	free(line);
-	// }
 	line = gnl(fd);
-	line = gnl(fd);
-	line = gnl(fd);
+	printf("1%s\n", line);
+	free(line);
 	return (0);
 }

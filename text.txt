@@ -3,3 +3,12 @@ practise your reading skills.
 Reading will help you to improve 
 your understanding of the language 
 and build your vocabulary.
+
+
+
+123\n45678
+
+buf 1
+
+123 \n
+45

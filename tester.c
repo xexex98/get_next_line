@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:26:56 by thi-phng          #+#    #+#             */
-/*   Updated: 2021/11/03 22:06:23 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/04 13:04:48 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (ret);
 }
 
-
 char	*ft_read(int fd, char *stat)
 {
 	int		ret = 1;
@@ -115,7 +114,6 @@ char	*get_line(char *stat)
 	return (ret);
 }
 
-
 char	*ft_stat(char *stat)
 {
 	char	*ret;
@@ -145,9 +143,6 @@ char	*ft_stat(char *stat)
 	return (ret);
 }
 
-
-
-
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -162,8 +157,6 @@ char	*get_next_line(int fd)
 	stat = ft_stat(stat);
 	return (line);
 }
-
-
 
 int	main(void)
 {

@@ -23,18 +23,34 @@
 // 	return (NULL);
 // }
 
-char *ft_strchr(char *str, char c)
+// char *ft_strchr(char *str, char c)
+// {
+// 	int i;
+
+// 	i = 0;
+
+// 	if (!str)
+// 		return (NULL);
+// 	while (str[i])
+// 	{
+// 		if (str[i] == c)
+// 			return(&str[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
+
+char	*ft_strchr(char *str, char c)
 {
-	int i;
+	int		i;
 
 	i = 0;
-
 	if (!str)
 		return (NULL);
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str[i] == c)
-			return(&str[i]);
+			return (&str[i]);
 		i++;
 	}
 	return (NULL);
@@ -47,7 +63,7 @@ int main()
 	int fd;
 	char *next;
 	int i = 0;
-	if (!ft_strchr(str, '5'))
+	if (!ft_strchr(str, '1'))
 	{
 		i = 0;
 	}
