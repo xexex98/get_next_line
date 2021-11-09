@@ -1,5 +1,14 @@
-Here you can find activities to
-practise your reading skills. 
-Reading will help you to improve 
-your understanding of the language 
-and build your vocabulary.
+Your project must be written in accordance with the Norm. If you have bonus
+files/functions, they are included in the norm check and you will receive a 0 if there
+is a norm error inside.
+Your functions should not quit unexpectedly (segmentation fault, bus error, double
+free, etc) apart from undefined behaviors. If this happens, your project will be
+considered non functional and will receive a 0 during the evaluation.
+All heap allocated memory space must be properly freed when necessary. No leaks
+will be tolerated.
+
+123\n45  buf buf 123\n45
+123\n line 
+buf2  Your project must be written in accordance with the Norm. If you have bonus\n
+fil
+line_rem line fil
