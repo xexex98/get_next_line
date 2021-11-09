@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:18:08 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/08 16:36:51 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/09 13:55:33 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -61,4 +61,20 @@ char	*ft_strjoin(char *s1, char *s2)
 	big[i] = '\0';
 	free(s1);
 	return (big);
+}
+
+int	ft_strlen_n(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\n')
+	{
+		if (s[i] == '\0')
+			return (i);
+		i++;
+	}
+	return (i + 1);
 }

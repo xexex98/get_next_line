@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:58:10 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/08 20:10:15 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/09 14:05:17 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_read(char	*buf2, int fd)
 	while (bytes > 0 && !ft_strchr(buf2, '\n'))
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
-		if (bytes <= 0) //!@
+		if (bytes < 0)
 			return (NULL);
 		buf[bytes] = '\0';
 		if (!buf2)
@@ -32,7 +32,6 @@ char	*ft_read(char	*buf2, int fd)
 			buf2[0] = '\0';
 		}
 		buf2 = ft_strjoin(buf2, buf);
-		printf("%s1", buf2);
 	}
 	return (buf2);
 }
@@ -45,7 +44,7 @@ char	*ft_line(char *buf2)
 	i = 0;
 	if (!*buf2)
 		return (NULL);
-	line = (char *)malloc(sizeof(char) * (ft_strlen(buf2) + 2));
+	line = (char *)malloc(sizeof(char) * (ft_strlen_n(buf2) + 1));
 	if (!line)
 		return (NULL);
 	while (buf2[i] != '\n' && buf2[i] != '\0')
@@ -103,16 +102,16 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	char	*line;
-	int		fd;
+// int	main(void)
+// {
+// 	char	*line;
+// 	int		fd;
 
-	fd = open("text.txt", O_RDONLY);
-	while ((line = get_next_line(fd)))
-	{
-		// printf("1%s", line);
-		free(line);
-	}
-	return (0);
-}
+// 	fd = open("text.txt", O_RDONLY);
+// 	while ((line = get_next_line(fd)))
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 	}
+// 	return (0);
+// }
