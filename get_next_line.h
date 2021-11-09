@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:18:39 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/09 14:00:18 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/11/09 21:08:35 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 1
 # endif
 # include <stdio.h>
 # include <stdlib.h>
